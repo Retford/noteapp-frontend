@@ -52,7 +52,7 @@ export const Header = () => {
               as='button'
               className='transition-transform'
               color='secondary'
-              name="Retford O'briam"
+              name="Retford"
               size='sm'
               src='/images/profile.webp'
             />
