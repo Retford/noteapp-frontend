@@ -25,8 +25,8 @@ export const NotesForm = ({
 }) => {
   const { categories } = useNoteStore();
   return (
-    <div className='flex flex-col w-full justify-center items-center p-5 relative'>
-      <Card className='max-w-full w-[340px]  lg:fixed lg:top-1/3'>
+    <div className='flex flex-col w-full justify-center items-center lg:p-5 relative'>
+      <Card className='max-w-full w-full xs:w-[340px] lg:fixed lg:top-1/3'>
         <CardBody className='overflow-hidden'>
           <Tabs
             fullWidth

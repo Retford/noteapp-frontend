@@ -26,26 +26,26 @@ export const CardNotes = ({
   return (
     <Card
       key={id}
-      className={`w-[19rem] lg:w-[420px]  ${
+      className={`w-[19rem] xs:w-[360px] sm:w-[400px] lg:w-[420px]  ${
         isArchivePage ? 'bg-default-400' : ''
       } `}
     >
       <CardHeader className='flex gap-3'>
-        <div>
-          <p className='text-md line-clamp-1 md:w-[13rem] lg:w-auto lg:max-w-52'>
-            {title}
-          </p>
+        <div className='w-full'>
+          <p className='text-md line-clamp-1'>{title}</p>
         </div>
-        {categories &&
-          categories.map((category) => (
-            <Chip color='success' variant='faded' key={category.id}>
-              {category.name}
-            </Chip>
-          ))}
+        <div className='w-full overflow-hidden whitespace-nowrap flex gap-1 pb-2 overflow-x-scroll scroll-hidden'>
+          {categories &&
+            categories.map((category) => (
+              <Chip color='success' variant='faded' key={category.id}>
+                {category.name}
+              </Chip>
+            ))}
+        </div>
       </CardHeader>
       <Divider />
       <CardBody>
-        <p className='h-36 lg:w-80'>{description}</p>
+        <p className='h-36 w-full'>{description}</p>
       </CardBody>
       <Divider />
       <CardFooter className='justify-between'>
