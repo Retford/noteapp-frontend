@@ -26,7 +26,7 @@ export const CardNotes = ({
   return (
     <Card
       key={id}
-      className={`max-sm:w-[19rem] lg:w-[420px] ${
+      className={`w-[19rem] lg:w-[420px]  ${
         isArchivePage ? 'bg-default-400' : ''
       } `}
     >
