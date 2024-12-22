@@ -1,6 +1,8 @@
-export const MoonIcon = (props) => {
+import { forwardRef } from 'react';
+
+export const MoonIcon = forwardRef((props, ref) => {
   return (
-    <svg width='1em' height='1em' viewBox='0 0 24 24' {...props}>
+    <svg width='1em' height='1em' viewBox='0 0 24 24' ref={ref} {...props}>
       <g
         fill='none'
         stroke='currentColor'
@@ -240,4 +242,6 @@ export const MoonIcon = (props) => {
       </circle>
     </svg>
   );
-};
+});
+
+MoonIcon.displayName = 'MoonIcon';

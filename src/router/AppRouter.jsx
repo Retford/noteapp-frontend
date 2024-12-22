@@ -1,4 +1,4 @@
-import { CircularProgress } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/react';
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { LoginPage } from '../auth/pages/LoginPage';
@@ -16,7 +16,7 @@ export const AppRouter = () => {
   if (status === 'checking') {
     return (
       <div className='w-full h-screen grid place-content-center'>
-        <CircularProgress aria-label='Loading...' color='danger' />
+        <Spinner label='Loading...' color='danger' labelColor='danger' />
       </div>
     );
   }

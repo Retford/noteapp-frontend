@@ -70,7 +70,7 @@ export const NotesForm = ({
                     value={createDescription}
                     onChange={handleCreateInputChange}
                   />
-                  <Button fullWidth type='submit' color='primary'>
+                  <Button fullWidth type='submit' color='secondary'>
                     Create
                   </Button>
                 </form>
@@ -99,7 +99,7 @@ export const NotesForm = ({
                   value={editDescription}
                   onChange={handleEditInputChange}
                 />
-                <Button fullWidth type='submit' color='primary'>
+                <Button fullWidth type='submit' color='success'>
                   Save
                 </Button>
               </form>

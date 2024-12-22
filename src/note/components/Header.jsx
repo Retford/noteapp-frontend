@@ -9,13 +9,14 @@ import {
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/react';
-import { Link } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../hooks/auth/useAuthStore';
-import { NoteLogoIcon } from '../icons/NoteLogoIcon';
 import { ThemeSwitcher } from '../../theme/components/ThemeSwitcher';
+import { NoteLogoIcon } from '../icons/NoteLogoIcon';
 
 export const Header = () => {
   const { startLogout, user } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleClickLogout = () => {
     startLogout();
@@ -24,22 +25,36 @@ export const Header = () => {
   return (
     <Navbar isBordered>
       <NavbarContent justify='start'>
-        <Link to='/'>
+        <NavLink to='/'>
           <NavbarBrand className='mr-4'>
             <NoteLogoIcon className='w-10 h-10' />
             <p className='hidden sm:block font-bold text-inherit pl-2'>
               {user.name}
             </p>
           </NavbarBrand>
-        </Link>
+        </NavLink>
         <NavbarContent className='hidden sm:flex gap-3'>
           <NavbarItem>
-            <Link to='/notes'>Notes Active</Link>
+            <NavLink
+              to='/notes'
+              end
+              className={({ isActive }) =>
+                isActive ? 'button--active' : 'text-gray-700'
+              }
+            >
+              Notes Active
+            </NavLink>
           </NavbarItem>
           <NavbarItem>
-            <Link aria-current='page' to='/notes/archives'>
+            <NavLink
+              aria-current='page'
+              to='/notes/archives'
+              className={({ isActive }) =>
+                isActive ? 'button--active' : 'text-gray-700'
+              }
+            >
               Notes Archived
-            </Link>
+            </NavLink>
           </NavbarItem>
         </NavbarContent>
       </NavbarContent>
@@ -52,12 +67,26 @@ export const Header = () => {
               as='button'
               className='transition-transform'
               color='secondary'
-              name="Retford"
+              name='Retford'
               size='sm'
               src='/images/profile.webp'
             />
           </DropdownTrigger>
           <DropdownMenu aria-label='Profile Actions' variant='flat'>
+            <DropdownItem
+              key='logout'
+              color='secondary'
+              onPress={() => navigate('/notes')}
+            >
+              Notes Active
+            </DropdownItem>
+            <DropdownItem
+              key='logout'
+              color='secondary'
+              onPress={() => navigate('/notes/archives')}
+            >
+              Notes Archived
+            </DropdownItem>
             <DropdownItem
               key='logout'
               color='danger'

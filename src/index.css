@@ -12,3 +12,12 @@
     display: none;
   }
 }
+
+.button--active {
+  box-shadow: 0 0 20px rgba(147, 83, 211, 0.8);
+  font-weight: 600;
+  padding: 4px 8px;
+  border: 2px solid #9353d3;
+  background-color: transparent;
+  border-radius: 8px;
+}

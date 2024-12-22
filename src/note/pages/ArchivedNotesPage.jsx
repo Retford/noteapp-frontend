@@ -88,7 +88,7 @@ export const ArchivedNotesPage = () => {
     <div className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
       <Header />
       <div className='grid place-content-center md:grid-cols-3 gap-4 p-5'>
-        <section className='col-span-2 flex justify-center items-center gap-4 flex-wrap py-6 my-2 md:py-16 md:my-4'>
+        <section className='lg:col-span-2 flex justify-center items-center gap-4 flex-wrap py-6 my-2 md:py-16 md:my-4 w-full'>
           {archivedNotes.map((note) => (
             <CardNotes
               key={note.id}

@@ -6,6 +6,7 @@ import {
   CardHeader,
   Chip,
   Divider,
+  Tooltip,
 } from '@nextui-org/react';
 import { EditIcon } from '../assets/icons/EditIcon';
 import { DeleteIcon } from '../assets/icons/DeleteIcon';
@@ -37,7 +38,12 @@ export const CardNotes = ({
         <div className='w-full overflow-hidden whitespace-nowrap flex gap-1 pb-2 overflow-x-scroll scroll-hidden'>
           {categories &&
             categories.map((category) => (
-              <Chip color='success' variant='faded' key={category.id}>
+              <Chip
+                color='success'
+                className='select-none'
+                variant='faded'
+                key={category.id}
+              >
                 {category.name}
               </Chip>
             ))}
@@ -53,26 +59,34 @@ export const CardNotes = ({
           className='min-w-16 px-0'
           endContent={
             !isArchivePage ? (
-              <ArchiveInactiveIcon className='w-5 h-5' />
+              <Tooltip showArrow placement='bottom' content='Archive'>
+                <ArchiveInactiveIcon className='w-5 h-5' />
+              </Tooltip>
             ) : (
-              <ArchiveActiveIcon className='w-5 h-5' />
+              <Tooltip showArrow placement='bottom' content='Unarchive'>
+                <ArchiveActiveIcon className='w-5 h-5' />
+              </Tooltip>
             )
           }
           onPress={handleClickArchive || handleClickActive}
         ></Button>
-        <Button
-          className='min-w-16 px-0'
-          variant='light'
-          endContent={<EditIcon className='w-5 h-5' />}
-          onPress={handleClickEdit}
-        ></Button>
-        <Button
-          className='min-w-16 px-0'
-          endContent={<DeleteIcon className='w-5 h-5' />}
-          color='danger'
-          variant='solid'
-          onPress={handleClickDelete}
-        ></Button>
+        <Tooltip showArrow placement='bottom' content='Edit'>
+          <Button
+            className='min-w-16 px-0'
+            variant='light'
+            endContent={<EditIcon className='w-5 h-5' />}
+            onPress={handleClickEdit}
+          ></Button>
+        </Tooltip>
+        <Tooltip showArrow placement='bottom' content='Delete'>
+          <Button
+            className='min-w-16 px-0'
+            endContent={<DeleteIcon className='w-5 h-5' />}
+            color='danger'
+            variant='solid'
+            onPress={handleClickDelete}
+          ></Button>
+        </Tooltip>
       </CardFooter>
     </Card>
   );

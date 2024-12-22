@@ -1,7 +1,9 @@
+import { Tab, Tabs, Tooltip } from '@nextui-org/react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { SunnyIcon } from '../icons/SunnyIcon';
+import { SystemIcon } from '../../assets/icons/SystemIcon';
 import { MoonIcon } from '../icons/MoonIcon';
+import { SunnyIcon } from '../icons/SunnyIcon';
 
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -14,16 +16,37 @@ export const ThemeSwitcher = () => {
   if (!mounted) return null;
 
   return (
-    <div>
-      {theme !== 'dark' ? (
-        <button onClick={() => setTheme('dark')}>
-          <SunnyIcon className='w-9 h-9' />
-        </button>
-      ) : (
-        <button onClick={() => setTheme('light')}>
-          <MoonIcon className='w-9 h-9' />
-        </button>
-      )}
-    </div>
+    <Tabs
+      aria-label='Options'
+      color='secondary'
+      variant='bordered'
+      selectedKey={theme}
+      onSelectionChange={setTheme}
+    >
+      <Tab
+        key='light'
+        title={
+          <Tooltip showArrow content='Light' placement='bottom'>
+            <SunnyIcon />
+          </Tooltip>
+        }
+      />
+      <Tab
+        key='dark'
+        title={
+          <Tooltip showArrow content='Dark' placement='bottom'>
+            <MoonIcon />
+          </Tooltip>
+        }
+      />
+      <Tab
+        key='system'
+        title={
+          <Tooltip showArrow content={'System'} placement='bottom'>
+            <SystemIcon />
+          </Tooltip>
+        }
+      />
+    </Tabs>
   );
 };

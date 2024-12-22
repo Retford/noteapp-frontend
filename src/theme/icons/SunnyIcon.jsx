@@ -1,6 +1,8 @@
-export const SunnyIcon = (props) => {
+import { forwardRef } from 'react';
+
+export const SunnyIcon = forwardRef((props, ref) => {
   return (
-    <svg width='1em' height='1em' viewBox='0 0 24 24' {...props}>
+    <svg width='1em' height='1em' viewBox='0 0 24 24' ref={ref} {...props}>
       <g
         fill='none'
         stroke='#fed402'
@@ -90,4 +92,6 @@ export const SunnyIcon = (props) => {
       </g>
     </svg>
   );
-};
+});
+
+SunnyIcon.displayName = 'SunnyIcon';
