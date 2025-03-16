@@ -42,7 +42,7 @@ export const Header = () => {
                 isActive ? 'button--active' : 'text-gray-700'
               }
             >
-              Notes Active
+              Active Notes
             </NavLink>
           </NavbarItem>
           <NavbarItem>
@@ -53,7 +53,7 @@ export const Header = () => {
                 isActive ? 'button--active' : 'text-gray-700'
               }
             >
-              Notes Archived
+              Archived Notes
             </NavLink>
           </NavbarItem>
         </NavbarContent>
